@@ -129,7 +129,7 @@
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
                   </ActivityAction.Argument>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="544.6666666666666,895.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
@@ -137,7 +137,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If sap2010:Annotation.AnnotationText="If Condition it checks the data in the column is present or not" Condition="[CurrentRow.item(&quot;Invoice Number&quot;).ToString=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="482.6666666666667,773.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If sap2010:Annotation.AnnotationText="If Condition it checks the data in the column is present or not" Condition="[Row.item(&quot;Invoice Number&quot;).ToString=&quot;&quot;]" sap:VirtualizedContainerService.HintSize="482.6666666666667,773.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -160,8 +160,8 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,98.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Invoice Number: -&quot;+CurrentRow.Item(&quot;Invoice Number&quot;).ToString+vbNewLine+&quot;Invoice Amount: -&quot;+CurrentRow.Item(&quot;Invoice Amount&quot;).ToString+vbNewLine+&quot;Vendor Name: -&quot;+CurrentRow.Item(&quot;Vendor Name&quot;).ToString]" />
-                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,95.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Invoice Number: -&quot;+CurrentRow.Item(&quot;Invoice Number&quot;).ToString+vbNewLine+&quot;Invoice Amount: -&quot;+CurrentRow.Item(&quot;Invoice Amount&quot;).ToString+vbNewLine+&quot;Vendor Name: -&quot;+CurrentRow.Item(&quot;Vendor Name&quot;).ToString]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="338,98.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Invoice Number: -&quot;+Row.Item(&quot;Invoice Number&quot;).ToString+vbNewLine+&quot;Invoice Amount: -&quot;+Row.Item(&quot;Invoice Amount&quot;).ToString+vbNewLine+&quot;Vendor Name: -&quot;+Row.Item(&quot;Vendor Name&quot;).ToString]" />
+                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,95.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Invoice Number: -&quot;+Row.Item(&quot;Invoice Number&quot;).ToString+vbNewLine+&quot;Invoice Amount: -&quot;+Row.Item(&quot;Invoice Amount&quot;).ToString+vbNewLine+&quot;Vendor Name: -&quot;+Row.Item(&quot;Vendor Name&quot;).ToString]" />
                         </Sequence>
                       </If.Else>
                     </If>
